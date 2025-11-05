@@ -1,0 +1,47 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Pill Man SLIM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100;300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#0b0f14"/>
+</head>
+<body>
+  <main class="wrap">
+    <!-- Top row: Don't Eat window -->
+    <section class="window">
+      <div class="label">DON'T EAT</div>
+      <div class="time" id="noeat_range">—</div>
+    </section>
+
+    <!-- Data rows -->
+    <section class="data">
+      <div class="row"><span class="label">LAST PILL</span><span class="val" id="pill_time">—</span><span class="val" id="pill_hours">—</span></div>
+      <div class="row"><span class="label">LAST MEAL</span><span class="val" id="meal_time">—</span><span class="val" id="meal_hours">—</span></div>
+      <div class="row"><span class="label">PILL PLAN</span><span class="val" id="plan_hours">—</span></div>
+      <div class="row"><span class="label">NEXT PILL (PLAN)</span><span class="val" id="next_pill">—</span></div>
+      <div class="row"><span class="label">NEXT PILL (OPTIMAL 8h)</span><span class="val" id="default_next_pill">—</span></div>
+      <div class="row"><span class="label">OFFSET VS PLAN</span><span class="val" id="offset_vs_plan">—</span></div>
+      <div class="row"><span class="label">DON'T EAT RANGE</span><span class="val" id="noeat_times">—</span></div>
+    </section>
+
+    <!-- Controls: 3 × 2 grid -->
+    <section class="controls">
+      <!-- Row 1: Log Pill, Log Meal, Set Plan -->
+      <button id="btn_log_pill">LOG PILL</button>
+      <button id="btn_log_meal">LOG MEAL</button>
+      <button id="btn_plan">SET PLAN</button>
+      <!-- Row 2: Edit Pill, Edit Meal, Clear Plan -->
+      <button id="btn_edit_pill">EDIT PILL</button>
+      <button id="btn_edit_meal">EDIT MEAL</button>
+      <button id="btn_clear">CLEAR PLAN</button>
+    </section>
+  </main>
+
+  <script defer src="app.js"></script>
+</body>
+</html>
