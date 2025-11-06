@@ -89,6 +89,26 @@ function render(){
     ? `${showClock(noEatStart)} – ${showClock(noEatEnd)}` : '—';
 }
 
+// ===== Recency color indicators (Last Pill / Last Meal) =====
+function hoursSince(ts){
+  if (ts == null) return Infinity;
+  return (Date.now() - ts) / H; // ms → hours
+}
+function setStateClass(el, ok){
+  if (!el) return;
+  el.classList.remove('ok','bad');
+  el.classList.add(ok ? 'ok' : 'bad');
+}
+function updateRecencyIndicators(){
+  const pillEl = $('pill_hours');
+  const mealEl = $('meal_hours');
+  const pillH = hoursSince(LAST_PILL_TS);
+  const mealH = hoursSince(LAST_MEAL_TS);
+  // Pill is green if >= 1h, red otherwise. Meal is green if >= 2h, red otherwise.
+  setStateClass(pillEl, pillH >= 1);
+  setStateClass(mealEl, mealH >= 2);
+}
+
 // ===== Input helpers =====
 function parseClockInput(text){
   if(!text) return null;
@@ -162,4 +182,5 @@ function wire(){
 loadLocal();
 wire();
 render();
-setInterval(render, 15000);
+updateRecencyIndicators();
+setInterval(() => { render(); updateRecencyIndicators(); }, 15000);
